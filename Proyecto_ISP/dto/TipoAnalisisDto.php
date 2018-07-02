@@ -6,11 +6,38 @@
  * and open the template in the editor.
  */
 
-/**
- * Description of TipoAnlisisDto
- *
- * @author Daniel
- */
+
 class TipoAnalisisDto {
-    //put your code here
+    
+    private $idTipoAnalisis;//<-PK
+    private $nombreAnalisis;
+    
+    function __construct() {
+        $this->idTipoAnalisis = 1;
+        $this->nombreAnalisis = "";
+    }
+    
+    function getIdTipoAnalisis() {
+        return $this->idTipoAnalisis;
+    }
+
+    function getNombreAnalisis() {
+        return $this->nombreAnalisis;
+    }
+
+    function setIdTipoAnalisis($idTipoAnalisis) {
+        $this->idTipoAnalisis = $idTipoAnalisis;
+    }
+
+    function setNombreAnalisis($nombreAnalisis) {
+        $this->nombreAnalisis = $nombreAnalisis;
+    }
+    
+    public function __toString() {
+        return $this->idTipoAnalisis." ".$this->nombreAnalisis;
+    }
+
+
+
+
 }
