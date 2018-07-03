@@ -8,9 +8,9 @@
 
 include_once 'BaseDao.php';
 
-interface ParticularDao extends BaseDao {
+interface EmpleadoDao extends BaseDao {
 
-    public static function deshabilitarParticular($rut);
+    public static function deshabilitarEmpleado($rut);
 
-    public static function existeRutParticular($rut);
+    public static function existeRutEmpleado($rut);
 }

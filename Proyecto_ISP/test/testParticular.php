@@ -37,4 +37,4 @@ $dto->setTelefonoParticular("222");
 //    echo "no existe";
 //}
 
-echo ParticularDaoImp::existeRutParticular("6.214.751-2");
+//echo ParticularDaoImp::existeRutParticular("6.214.751-2");

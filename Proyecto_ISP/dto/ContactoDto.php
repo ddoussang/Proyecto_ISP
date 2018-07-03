@@ -15,12 +15,13 @@ class ContactoDto {
     private $telefonoContacto;
     private $empresaCodigoEmpresa;//<--FK
     
+    
     function __construct() {
         $this->rutContacto = "";
         $this->nombreContacto = "";
         $this->emailContacto = "";
         $this->telefonoContacto = 1;
-        $this->empresaCodigoEmpresa = 1;
+        $this->empresaCodigoEmpresa = 1;        
     }
     
     function getRutContacto() {
