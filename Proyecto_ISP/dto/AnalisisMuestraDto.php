@@ -21,9 +21,9 @@ class AnalisisMuestraDto {
         $this->fechaRecepcionMuestra = null;
         $this->temperaturaMuestra = 1.1;
         $this->cantidadMuestra = 1;
-        $this->muestraCodigoEmpresa = 1;
+        $this->muestraCodigoEmpresa = null;
         $this->rutEmpleadoRecibe = "";
-        $this->muestraCodigoParticular = 1;
+        $this->muestraCodigoParticular = null;
     }
 
     function getIdAnalisisMuestra() {

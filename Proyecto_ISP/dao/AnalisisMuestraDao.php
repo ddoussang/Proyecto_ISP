@@ -9,6 +9,6 @@ include_once 'BaseDao.php';
 
 interface AnalisisMuestraDao extends BaseDao {
     
-    public static function buscarMuestraPorRut($rut);
+    public static function buscarMuestraPorRutEmpleado($rut);
     
 }

@@ -9,7 +9,11 @@ include_once 'BaseDao.php';
 
 interface ResultadoAnalisisDao extends BaseDao {
     
-    public static function buscarAnalisisPorCodigo($cod);
+    public static function buscarAnalisisPorCodigoMuestra($cod);
     
-    public static function buscarAnalisisPorRut($rut);
+    public static function buscarAnalisisPorCodigoCliente($cod);    
+    
+    public static function buscarAnalisisPorRutEmpleado($rut);
+    
+    public static function buscarAnalisisPorRutCliente($rut);
 }
