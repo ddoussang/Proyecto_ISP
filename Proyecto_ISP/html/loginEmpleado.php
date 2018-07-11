@@ -33,37 +33,25 @@
                                 <h1>Ingresa</h1> 
                                 <p> 
                                     <label for="username" class="uname" data-icon="u" > Rut </label>
-                                    <input id="username" name="txtRut" required="required" type="text" placeholder="12345678-9"
-                                           onkeypress="return soloRUT(event)" onblur="checkRutGenerico(txtRut.value, false)"/>
+                                    <input id="txtRut" name="txtRut" required="" type="text" placeholder="12345678-9"
+                                           onkeypress="return soloRUT(event)" onblur="checkRutGenerico(txtRut.value, false)"  />
                                 </p>
                                 <p> 
                                     <label for="password" class="youpasswd" data-icon="p"> Contraseña </label>
                                     <input id="password" name="pass" required="required" type="password" placeholder="****" /> 
                                 </p>
-<!--                                <p class="keeplogin"> 
-                                    <input type="checkbox" name="loginkeeping" id="loginkeeping" value="loginkeeping" /> 
-                                    <label for="loginkeeping">Mantenme mi session abierta</label>
-                                </p>-->
                                 <?php
-                                if (isset($message)) {
+                                if (isset($_SESSION["message"])) {
                                     echo " <p>";
-                                    echo "<span id='error'>" . $message . "</span>";
+                                    echo "<span id='error'>" . $_SESSION["message"] . "</span>";
                                     echo "</p>";
                                 }
-                                unset($message);
+                                session_destroy();
                                 ?>
                                 
                                 <p class="login button"> 
                                     <input type="submit" value="Ingresa" /> 
                                 </p>
-<!--                                <p class="login button">
-                                    ¿No estas registrado?
-                                    <a href="../html/registroPersona.php" class="to_register">Registrate!</a>
-                                </p>
-                                <p class="change_link">
-                                    ¿Eres una empresa?
-                                    <a href="../html/registroEmpresa.php" class="to_register">Registrate como empresa</a>
-                                </p>-->
                             </form>
                         </div>
                     </div>

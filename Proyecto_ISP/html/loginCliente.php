@@ -31,7 +31,7 @@
                                 <p> 
                                     <label for="username" class="uname" data-icon="u" > Rut </label>
                                     <input type="text" name="txtRut" id="txtRut" placeholder="Rut" onkeypress="return soloRUT(event)"
-                                           onblur="checkRutGenerico(txtRut.value, false)" >
+                                           onblur="checkRutGenerico(txtRut.value, false)" required="" >
                                 </p>
                                 <p> 
                                     <label for="password" class="youpasswd" data-icon="p"> Contraseña </label>
@@ -42,12 +42,12 @@
                                     <label for="loginkeeping">Mantenme mi session abierta</label>
                                 </p>
                                 <?php
-                                if (isset($message)) {
+                                if (isset($_SESSION["message"])) {
                                     echo " <p>";
-                                    echo "<span id='error'>" . $message . "</span>";
+                                    echo "<span id='error'>" . $_SESSION["message"] . "</span>";
                                     echo "</p>";
                                 }
-                                unset($message);
+                                session_destroy();
                                 ?>
                                 <p class="login button"> 
                                     <input type="submit" value="Login" /> 

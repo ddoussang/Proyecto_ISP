@@ -54,7 +54,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./cerrar.php">Salir</a>
+                            <a class="nav-link" href="./cerrarClienteFile.php">Salir</a>
                         </li>
                     </ul>
                 </div>
