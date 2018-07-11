@@ -26,7 +26,7 @@
                     <!-- hidden anchor to stop jump http://www.css3create.com/Astuce-Empecher-le-scroll-avec-l-utilisation-de-target#wrap4  -->
                     <div id="wrapper">
                         <div id="login" class="animate form">
-                            <form  action="./fileLogintCliente.php" autocomplete="on" method="POST"> 
+                            <form  action="./fileLoginCliente.php" autocomplete="on" method="POST"> 
                                 <h1>Ingresa</h1> 
                                 <p> 
                                     <label for="username" class="uname" data-icon="u" > Rut </label>
