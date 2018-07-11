@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
-        <title>Bootstrap V4 Side Toggle and Fixed Top Menu (Responsive) - Bootsnipp.com</title>
+        <title>Home Receptor</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
         <style type="text/css">
