@@ -19,7 +19,7 @@ try {
 
     session_start();
     if (!is_null($usuario)) {
-
+        
         if ($usuario->getHabilitadoEmpleado() === true) {
             if ($contrasena === $usuario->getPasswordEmpleado()) {
 

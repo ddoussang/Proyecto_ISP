@@ -46,7 +46,7 @@
                                     echo "<span id='error'>" . $_SESSION["message"] . "</span>";
                                     echo "</p>";
                                 }
-                                session_destroy();
+                                //session_destroy();
                                 ?>
                                 
                                 <p class="login button"> 
