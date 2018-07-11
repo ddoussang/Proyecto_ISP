@@ -14,6 +14,7 @@
         <link rel="stylesheet" type="text/css" href="css/demo.css" />
         <link rel="stylesheet" type="text/css" href="css/style.css" />
         <link rel="stylesheet" type="text/css" href="css/animate-custom.css" />
+        <script src="js/main.js" type="text/javascript"></script>
     </head>
     <body>
         <div class="container">
@@ -23,15 +24,14 @@
             <section>				
                 <div id="container_demo" >
                     <!-- hidden anchor to stop jump http://www.css3create.com/Astuce-Empecher-le-scroll-avec-l-utilisation-de-target#wrap4  -->
-                    <a class="hiddenanchor" id="toregister"></a>
-                    <a class="hiddenanchor" id="tologin"></a>
                     <div id="wrapper">
                         <div id="login" class="animate form">
-                            <form  action="mysuperscript.php" autocomplete="on"> 
+                            <form  action="./fileLogintCliente.php" autocomplete="on" method="POST"> 
                                 <h1>Ingresa</h1> 
                                 <p> 
                                     <label for="username" class="uname" data-icon="u" > Rut </label>
-                                    <input id="username" name="username" required="required" type="text" placeholder="myusername or mymail@mail.com"/>
+                                    <input type="text" name="txtRut" id="txtRut" placeholder="Rut" onkeypress="return soloRUT(event)"
+                                           onblur="checkRutGenerico(txtRut.value, false)" >
                                 </p>
                                 <p> 
                                     <label for="password" class="youpasswd" data-icon="p"> Contraseña </label>
@@ -41,6 +41,16 @@
                                     <input type="checkbox" name="loginkeeping" id="loginkeeping" value="loginkeeping" /> 
                                     <label for="loginkeeping">Mantenme mi session abierta</label>
                                 </p>
+
+                                <?php
+                                if (isset($message)) {
+                                    echo " <p>";
+                                    echo "<span id='error'>" . $message . "</span>";
+                                    echo "</p>";
+                                }
+                                unset($message);
+                                ?>
+
                                 <p class="login button"> 
                                     <input type="submit" value="Login" /> 
                                 </p>
