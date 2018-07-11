@@ -60,7 +60,7 @@
                                     ¿Eres una empresa?
                                     <a href="../html/registroEmpresa.php" class="to_register">Registrate como empresa</a>
                                 </p>
-                            s</form>
+                            </form>
                         </div>
                     </div>
                 </div>  

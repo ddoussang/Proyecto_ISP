@@ -14,6 +14,7 @@
         <link rel="stylesheet" type="text/css" href="css/demo.css" />
         <link rel="stylesheet" type="text/css" href="css/style.css" />
         <link rel="stylesheet" type="text/css" href="css/animate-custom.css" />
+        <script src="js/main.js" type="text/javascript"></script>
     </head>
     <body>
         <div class="container">
@@ -32,7 +33,8 @@
                                 <h1>Ingresa</h1> 
                                 <p> 
                                     <label for="username" class="uname" data-icon="u" > Rut </label>
-                                    <input id="username" name="txtRut" required="required" type="text" placeholder="12345678-9"/>
+                                    <input id="username" name="txtRut" required="required" type="text" placeholder="12345678-9"
+                                           onkeypress="return soloRUT(event)" onblur="checkRutGenerico(txtRut.value, false)"/>
                                 </p>
                                 <p> 
                                     <label for="password" class="youpasswd" data-icon="p"> Contraseña </label>
@@ -42,6 +44,15 @@
                                     <input type="checkbox" name="loginkeeping" id="loginkeeping" value="loginkeeping" /> 
                                     <label for="loginkeeping">Mantenme mi session abierta</label>
                                 </p>-->
+                                <?php
+                                if (isset($message)) {
+                                    echo " <p>";
+                                    echo "<span id='error'>" . $message . "</span>";
+                                    echo "</p>";
+                                }
+                                unset($message);
+                                ?>
+                                
                                 <p class="login button"> 
                                     <input type="submit" value="Ingresa" /> 
                                 </p>

@@ -15,7 +15,7 @@ try {
     $contrasena = md5($_POST["password"]);
 
     $implementacion = new ParticularDaoImp();
-    $particular = $implementacion->existeRutEmpleado($rut);
+    $particular = $implementacion->existeRutParticular($rut);
     echo "particular: ".$particular;
     $implementacionEmpresa = new EmpresaDaoImp();
     $empresa = $implementacionEmpresa->existeRutEmpresa($rut);
