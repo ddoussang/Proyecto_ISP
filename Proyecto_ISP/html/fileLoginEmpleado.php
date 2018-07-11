@@ -35,15 +35,15 @@ try {
                 }
             } else {
                 $_SESSION["message"] = "error [Contraseña incorrecta]";
-                header('Location: ../index.php');
+                header('Location: ./loginEmpleado.php');
             }
         } else {
             $_SESSION["message"] = "error [Usuario deshabilitado]";
-            header('Location: ../index.php');
+            header('Location: ./loginEmpleado.php');
         }
     } else {
         $_SESSION["message"] = "error [No existe usuario]";
-        header('Location: ../index.php');
+        header('Location: ./loginEmpleado.php');
     }
 } catch (Exception $ex) {
     echo "Error" . $ex->getMessage();
