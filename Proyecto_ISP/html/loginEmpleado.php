@@ -19,6 +19,7 @@
         <div class="container">
             <header>
                 <h1>Instituto de salud publica</h1>
+                <p>Trabajadores</p>
             </header>
             <section>				
                 <div id="container_demo" >
@@ -27,7 +28,7 @@
                     <a class="hiddenanchor" id="tologin"></a>
                     <div id="wrapper">
                         <div id="login" class="animate form">
-                            <form method="POST" action="./fileLoginEmpleado.php.php" autocomplete="on"> 
+                            <form method="POST" action="./fileLoginEmpleado.php" autocomplete="on"> 
                                 <h1>Ingresa</h1> 
                                 <p> 
                                     <label for="username" class="uname" data-icon="u" > Rut </label>
@@ -37,21 +38,21 @@
                                     <label for="password" class="youpasswd" data-icon="p"> Contraseña </label>
                                     <input id="password" name="pass" required="required" type="password" placeholder="****" /> 
                                 </p>
-                                <p class="keeplogin"> 
+<!--                                <p class="keeplogin"> 
                                     <input type="checkbox" name="loginkeeping" id="loginkeeping" value="loginkeeping" /> 
                                     <label for="loginkeeping">Mantenme mi session abierta</label>
-                                </p>
+                                </p>-->
                                 <p class="login button"> 
-                                    <input type="submit" value="Login" /> 
+                                    <input type="submit" value="Ingresa" /> 
                                 </p>
-                                <p class="login button">
+<!--                                <p class="login button">
                                     ¿No estas registrado?
                                     <a href="../html/registroPersona.php" class="to_register">Registrate!</a>
                                 </p>
                                 <p class="change_link">
                                     ¿Eres una empresa?
                                     <a href="../html/registroEmpresa.php" class="to_register">Registrate como empresa</a>
-                                </p>
+                                </p>-->
                             </form>
                         </div>
                     </div>
