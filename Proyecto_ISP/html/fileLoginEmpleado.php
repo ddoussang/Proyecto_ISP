@@ -12,7 +12,7 @@ include_once '../dto/EmpleadoDto.php';
 
 try {
     $rut = $_POST["txtRut"];
-    $contrasena = $_POST["pass"];
+    $contrasena = md5($_POST["pass"]);
 
     $implementacion = new EmpleadoDaoImp();
     $usuario = $implementacion->existeRutEmpleado($rut);
@@ -20,12 +20,16 @@ try {
     session_start();
     if (!is_null($usuario)) {
         if ($contrasena === $usuario->getPasswordEmpleado()) {
-            if ($usuario->getTipoEmpleado() === "Receptor") {
+
+            if($usuario->getTipoEmpleado() === "Receptor"){
                 $_SESSION["user"] = serialize($usuario);
-                header('Location: ./HomeReceptor.php');
-            } else {                
+                   header('Location: ./HomeReceptor.php');
+            }elseif($usuario->getTipoEmpleado() === "Tecnico"){
                 $_SESSION["user"] = serialize($usuario);                
-                header('Location: ./HomeTecnico.php');
+                  header('Location: ./HomeTecnico.php');
+            }else{
+                $_SESSION["user"] = serialize($usuario);                
+                  header('Location: ./HomeAdministrador.php');
             }
         } else {
             $_SESSION["message"] = "error";
