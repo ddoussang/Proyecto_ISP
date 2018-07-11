@@ -41,7 +41,6 @@
                                     <input type="checkbox" name="loginkeeping" id="loginkeeping" value="loginkeeping" /> 
                                     <label for="loginkeeping">Mantenme mi session abierta</label>
                                 </p>
-
                                 <?php
                                 if (isset($message)) {
                                     echo " <p>";
@@ -50,7 +49,6 @@
                                 }
                                 unset($message);
                                 ?>
-
                                 <p class="login button"> 
                                     <input type="submit" value="Login" /> 
                                 </p>
@@ -62,7 +60,7 @@
                                     ¿Eres una empresa?
                                     <a href="../html/registroEmpresa.php" class="to_register">Registrate como empresa</a>
                                 </p>
-                            </form>
+                            s</form>
                         </div>
                     </div>
                 </div>  

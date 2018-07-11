@@ -5,8 +5,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-
 include_once '../dao/ParticularDaoImp.php';
 include_once '../dto/ParticularDto.php';
 include_once '../dto/EmpresaDto.php';
@@ -18,13 +16,14 @@ try {
 
     $implementacion = new ParticularDaoImp();
     $particular = $implementacion->existeRutEmpleado($rut);
-
+    echo "particular: ".$particular;
     $implementacionEmpresa = new EmpresaDaoImp();
     $empresa = $implementacionEmpresa->existeRutEmpresa($rut);
 
     session_start();
 
     if (!is_null($particular)) {
+        echo "Estamos en particular";
         if ($particular->getHabilitadoParticular()) {
             if ($contrasena === $particular->getPasswordParticular()) {
                 $_SESSION["cliente"] = serialize($particular);
@@ -55,5 +54,5 @@ try {
             header('Location: ./loginCliente.php');
     }
 } catch (Exception $ex) {
-    echo "Error" . $ex->getMessage();
+    echo "Error " . $ex->getMessage();
 }
