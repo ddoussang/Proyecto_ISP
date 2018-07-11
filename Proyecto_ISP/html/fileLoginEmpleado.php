@@ -1,6 +1,6 @@
 <?php
 
-/* 
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -19,25 +19,31 @@ try {
 
     session_start();
     if (!is_null($usuario)) {
-        if ($contrasena === $usuario->getPasswordEmpleado()) {
 
-            if($usuario->getTipoEmpleado() === "Receptor"){
-                $_SESSION["user"] = serialize($usuario);
-                   header('Location: ./HomeReceptor.php');
-            }elseif($usuario->getTipoEmpleado() === "Tecnico"){
-                $_SESSION["user"] = serialize($usuario);                
-                  header('Location: ./HomeTecnico.php');
-            }else{
-                $_SESSION["user"] = serialize($usuario);                
-                  header('Location: ./HomeAdministrador.php');
+        if ($usuario->getHabilitadoEmpleado() === true) {
+            if ($contrasena === $usuario->getPasswordEmpleado()) {
+
+                if ($usuario->getTipoEmpleado() === "Receptor") {
+                    $_SESSION["user"] = serialize($usuario);
+                    header('Location: ./HomeReceptor.php');
+                } elseif ($usuario->getTipoEmpleado() === "Tecnico") {
+                    $_SESSION["user"] = serialize($usuario);
+                    header('Location: ./HomeTecnico.php');
+                } else {
+                    $_SESSION["user"] = serialize($usuario);
+                    header('Location: ./HomeAdministrador.php');
+                }
+            } else {
+                $_SESSION["message"] = "error [Contraseña incorrecta]";
+                header('Location: ../index.php');
             }
         } else {
-            $_SESSION["message"] = "error";
-            header('Location: ./index.php');
+            $_SESSION["message"] = "error [Usuario deshabilitado]";
+            header('Location: ../index.php');
         }
     } else {
-        $_SESSION["message"] = "error";
-        header('Location: ./index.php');
+        $_SESSION["message"] = "error [No existe usuario]";
+        header('Location: ../index.php');
     }
 } catch (Exception $ex) {
     echo "Error" . $ex->getMessage();
