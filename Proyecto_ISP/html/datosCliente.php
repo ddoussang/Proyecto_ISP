@@ -67,9 +67,12 @@
                                 <h5 class="card-title">Mis Datos</h5>
                                 <form action="./actualizarDatos.php" method="POST">
                                     <?php
+                                    session_start();
                                     include_once '../dto/EmpresaDto.php';
                                     include_once '../dto/ParticularDto.php';
-                                    if (unserialize($_SESSION["cliente"]) instanceof ParticularDto) {
+                                    $cliente = unserialize($_SESSION["cliente"]);
+                                    echo get_class($cliente);
+                                    if ($cliente  instanceof ParticularDto) {
                                         echo "<table class='table'>
                                     <tbody>
                                         <tr>
@@ -80,12 +83,12 @@
                                         </tr>
                                     </tbody>
                                 </table>";
-                                    } elseif (unserialize($_SESSION["cliente"]) instanceof EmpresaDao) {
+                                    } elseif ($cliente instanceof EmpresaDto) {
                                         echo "<table class='table'>
                                     <tbody>
                                         <tr>
-                                            <th></th>
-                                            <td>Mark</td>
+                                            <th>Nombre: </th>
+                                            <td></td>
                                             <td>Otto</td>
                                             <td>@mdo</td>
                                         </tr>

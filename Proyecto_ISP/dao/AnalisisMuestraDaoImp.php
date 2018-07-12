@@ -10,7 +10,7 @@ include_once '../dto/AnalisisMuestraDto.php';
 include_once '../bd/ClasePDO.php';
 
 class AnalisisMuestraDaoImp implements AnalisisMuestraDao {
-    
+
     public static function agregar($dto) {
         try {
             $pdo = new clasePDO();
@@ -24,7 +24,7 @@ class AnalisisMuestraDaoImp implements AnalisisMuestraDao {
             $stmt->bindValue(3, $dto->getMuestraCodigoEmpresa());
             $stmt->bindValue(4, $dto->getRutEmpleadoRecibe());
             $stmt->bindValue(5, $dto->getMuestraCodigoParticular());
-            
+
             $stmt->execute();
             if ($stmt->rowCount() > 0) {
                 return TRUE;
@@ -36,39 +36,71 @@ class AnalisisMuestraDaoImp implements AnalisisMuestraDao {
         return FALSE;
     }
 
-    /*Retorna objeto con las muestras encontradas*/
+    /* Retorna objeto con las muestras encontradas */
+
     public static function buscarMuestraPorRutEmpleado($rut) {
         //$lista= new ArrayObject();
-         try {
-             $pdo = new clasePDO();
-             $stmt = $pdo->prepare("SELECT * FROM analisis_muestra WHERE rut_empleado_recibe=?");
-             $stmt->bindParam(1, $rut);
-             
-             $stmt->execute();
-             $resultado = $stmt->fetchAll();
-             foreach ($resultado as $value) {
-                 $dto = new AnalisisMuestraDto();
-                 
-                 $dto->setIdAnalisisMuestra($value["id_analisis_muestra"]);
-                 $dto->setFechaRecepcionMuestra($value["fecha_recepcion_muestra"]);
-                 $dto->setTemperaturaMuestra($value["temperatura_muestra"]);
-                 $dto->setCantidadMuestra($value["cantidad_muestra"]);
-                 $dto->setMuestraCodigoEmpresa($value["muestra_codigo_empresa"]);
-                 $dto->setRutEmpleadoRecibe($value["rut_empleado_recibe"]);
-                 $dto->setMuestraCodigoParticular($value["muestra_codigo_particular"]);
-                                  
-                 return $dto;
-                 //$lista->append($dto);
-             }
-             $pdo=NULL;
-         } catch (Exception $exc) {
-             echo "Error dao al Buscar Muestra por Rut->".$exc->getMessage();             
-         }
-         return NULL;
-         //return $lista;
+        try {
+            $pdo = new clasePDO();
+            $stmt = $pdo->prepare("SELECT * FROM analisis_muestra WHERE rut_empleado_recibe=?");
+            $stmt->bindParam(1, $rut);
+
+            $stmt->execute();
+            $resultado = $stmt->fetchAll();
+            foreach ($resultado as $value) {
+                $dto = new AnalisisMuestraDto();
+
+                $dto->setIdAnalisisMuestra($value["id_analisis_muestra"]);
+                $dto->setFechaRecepcionMuestra($value["fecha_recepcion_muestra"]);
+                $dto->setTemperaturaMuestra($value["temperatura_muestra"]);
+                $dto->setCantidadMuestra($value["cantidad_muestra"]);
+                $dto->setMuestraCodigoEmpresa($value["muestra_codigo_empresa"]);
+                $dto->setRutEmpleadoRecibe($value["rut_empleado_recibe"]);
+                $dto->setMuestraCodigoParticular($value["muestra_codigo_particular"]);
+
+                return $dto;
+                //$lista->append($dto);
+            }
+            $pdo = NULL;
+        } catch (Exception $exc) {
+            echo "Error dao al Buscar Muestra por Rut->" . $exc->getMessage();
+        }
+        return NULL;
+        //return $lista;
     }
 
-    /*No se requiere*/    
+    /* Retorna objeto con las muestras encontradas */
+
+    public function muestraPorCodigoCliente($rut) {
+        $lista = new ArrayObject();
+        try {
+            $pdo = new clasePDO();
+            $stmt = $pdo->prepare("SELECT * FROM analisis_muestra WHERE muestra_codigo_empresa=? OR muestra_codigo_particular=?");
+            $stmt->bindParam(1, $rut);
+            $stmt->bindParam(2, $rut);
+
+            $stmt->execute();
+            $resultado = $stmt->fetchAll();
+            foreach ($resultado as $value) {
+                $dto = new AnalisisMuestraDto();
+                $dto->setIdAnalisisMuestra($value["id_analisis_muestra"]);
+                $dto->setFechaRecepcionMuestra($value["fecha_recepcion_muestra"]);
+                $dto->setTemperaturaMuestra($value["temperatura_muestra"]);
+                $dto->setCantidadMuestra($value["cantidad_muestra"]);
+                $dto->setMuestraCodigoEmpresa($value["muestra_codigo_empresa"]);
+                $dto->setRutEmpleadoRecibe($value["rut_empleado_recibe"]);
+                $dto->setMuestraCodigoParticular($value["muestra_codigo_particular"]);
+
+                $lista->append($dto);
+            }
+        } catch (Exception $exc) {
+            echo "Error dao al Buscar Muestra por Rut->" . $exc->getMessage();
+        }
+        return $lista;
+    }
+
+    /* No se requiere */
+
     public static function modificar($dto) {
         
     }

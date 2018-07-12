@@ -17,6 +17,7 @@ and open the template in the editor.
         <link rel="stylesheet" type="text/css" href="css/demo.css" />
         <link rel="stylesheet" type="text/css" href="css/style.css" />
         <link rel="stylesheet" type="text/css" href="css/animate-custom.css" />
+        <script src="js/main.js" type="text/javascript"></script>
     </head>
     <body>
         <div class="container">

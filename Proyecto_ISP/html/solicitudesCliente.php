@@ -69,30 +69,39 @@
                                     <thead>
                                         <tr>
                                             <th scope="col">Codigo</th>
+                                            <th scope="col">Fecha recepcion</th>
                                             <th scope="col">Cantidad</th>
-                                            <th scope="col">Fecha ingreso</th>
+                                            <th scope="col">Receptor</th>
                                             <th scope="col">Estado</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <th scope="row">1</th>
-                                            <td>Mark</td>
-                                            <td>Otto</td>
-                                            <td>@mdo</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">2</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">3</th>
-                                            <td>Larry</td>
-                                            <td>the Bird</td>
-                                            <td>@twitter</td>
-                                        </tr>
+                                        <?php
+                                        include_once '../dto/AnalisisMuestraDto.php';
+                                        include_once '../dao/AnalisisMuestraDaoImp.php';
+                                        include_once '../dto/EmpresaDto.php';
+                                        include_once '../dto/ParticularDto.php';
+
+                                        $implement = new AnalisisMuestraDaoImp();
+                                        session_start();
+                                        $usuario = unserialize($_SESSION["cliente"]);
+                                        if ($usuario instanceof EmpresaDto) {
+                                            $lista = $implement->buscarMuestraPorCodigoCliente($usuario->getCodigoEmpresa());
+                                        } elseif ($usuario instanceof ParticularDto) {
+                                            $lista = $implement->buscarMuestraPorCodigoCliente($usuario->getCodigoParticular());
+                                        }
+                                        echo "Lista : ".$lista;
+                                        foreach ($lista as $aux) {
+                                            echo "<tr>
+                                            <th>" . $aux->getIdAnalisisMuestra() . "</th>
+                                            <th>" . $aux->getFechaRecepcionMuestra() . "</th>
+                                            <th>" . $aux->getCantidadMuestra() . "</th>
+                                            <th>" . $aux->getRutEmpleadoRecibe() . "</th>
+                                                <th></th>
+                                        </tr>";
+                                        }
+                                        ?>
+
                                     </tbody>
                                 </table>
                             </div>
