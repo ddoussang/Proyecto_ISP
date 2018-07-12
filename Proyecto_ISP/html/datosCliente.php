@@ -54,7 +54,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./cerrarClienteFile.php">Salir</a>
+                            <a class="nav-link" href="./fileCerrarCliente.php">Salir</a>
                         </li>
                     </ul>
                 </div>
@@ -65,6 +65,35 @@
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title">Mis Datos</h5>
+                                <form action="./actualizarDatos.php" method="POST">
+                                    <?php
+                                    include_once '../dto/EmpresaDto.php';
+                                    include_once '../dto/ParticularDto.php';
+                                    if (unserialize($_SESSION["cliente"]) instanceof ParticularDto) {
+                                        echo "<table class='table'>
+                                    <tbody>
+                                        <tr>
+                                            <th>Nombre :</th>
+                                            <td><input type='text' name='nombre'/></td>
+                                            <td>Otto</td>
+                                            <td>@mdo</td>
+                                        </tr>
+                                    </tbody>
+                                </table>";
+                                    } elseif (unserialize($_SESSION["cliente"]) instanceof EmpresaDao) {
+                                        echo "<table class='table'>
+                                    <tbody>
+                                        <tr>
+                                            <th></th>
+                                            <td>Mark</td>
+                                            <td>Otto</td>
+                                            <td>@mdo</td>
+                                        </tr>
+                                    </tbody>
+                                </table>";
+                                    }
+                                    ?>
+                                </form>
                             </div>
                         </div>
                     </div>
