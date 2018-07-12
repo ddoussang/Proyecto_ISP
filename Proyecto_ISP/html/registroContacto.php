@@ -7,7 +7,7 @@ and open the template in the editor.
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
+        <title>Registro Contacto</title>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
         <meta name="description" content="Login and Registration Form with HTML5 and CSS3" />
@@ -28,30 +28,27 @@ and open the template in the editor.
                     <!-- hidden anchor to stop jump http://www.css3create.com/Astuce-Empecher-le-scroll-avec-l-utilisation-de-target#wrap4  -->
                     <div id="wrapper">
                         <div id="login" >
-                            <form  action="mysuperscript.php" autocomplete="on"> 
-                                <h1> Registrate </h1> 
+                            <form  action="./fileRegistrarContacto.php"  method="POST"> 
+                                <h1> Datos de contacto</h1> 
                                 <p> 
-                                    <label for="usernamesignup" class="uname" data-icon="u"> Rut </label>
-                                    <input id="usernamesignup" name="usernamesignup" required="required" type="text" placeholder="mysuperusername690" />
+                                    <label for="txtRut" class="uname" data-icon="u"> Rut </label>
+                                    <input type="text" name="txtRut" id="txtRut" placeholder="Rut" onkeypress="return soloRUT(event)"
+                                           onblur="checkRutGenerico(txtRut.value, false)" required="" >
+                                </p>
+                                <p> 
+                                    <label for="nombre" class="youmail" data-icon="e" > Nombre </label>
+                                    <input id="nombre" name="nombre" required="required" type="text" placeholder=""/> 
                                 </p>
                                 <p> 
                                     <label for="emailsignup" class="youmail" data-icon="e" > Correo </label>
                                     <input id="emailsignup" name="emailsignup" required="required" type="email" placeholder="mysupermail@mail.com"/> 
                                 </p>
                                 <p> 
-                                    <label for="passwordsignup" class="youpasswd" data-icon="p">Contraseña </label>
-                                    <input id="passwordsignup" name="passwordsignup" required="required" type="password" placeholder="eg. X8df!90EO"/>
-                                </p>
-                                <p> 
-                                    <label for="passwordsignup_confirm" class="youpasswd" data-icon="p">Confirma tu contraseña </label>
-                                    <input id="passwordsignup_confirm" name="passwordsignup_confirm" required="required" type="password" placeholder="eg. X8df!90EO"/>
+                                    <label for="telefono" class="youmail" data-icon="u" > Telefono </label>
+                                    <input id="telefono" name="telefono" required="required" type="text" placeholder="56977837849"/> 
                                 </p>
                                 <p class="signin button"> 
-                                    <input type="submit" value="Sign up"/> 
-                                </p>
-                                <p class="change_link">  
-                                    Ya estas registrado ?
-                                    <a href="../html/loginCliente.php" class="to_register"> Ingresar </a>
+                                    <input type="submit" value="Registrar"/> 
                                 </p>
                             </form>
                         </div>

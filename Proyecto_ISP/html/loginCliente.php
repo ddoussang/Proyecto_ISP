@@ -17,6 +17,13 @@
         <script src="js/main.js" type="text/javascript"></script>
     </head>
     <body>
+        <?php
+        session_start();
+        if (isset($_SESSION["mj"]) && $_SESSION["mj"]==1) {
+           echo "<script>alert('Registrado!');</script>";
+        }
+        session_destroy();
+        ?>
         <div class="container">
             <header>
                 <h1>Instituto de salud publica</h1>
@@ -42,9 +49,10 @@
                                     <label for="loginkeeping">Mantenme mi session abierta</label>
                                 </p>
                                 <?php
+                                session_start();
                                 if (isset($_SESSION["message"])) {
                                     echo " <p>";
-                                    echo "<span id='error'>" . $_SESSION["message"] . "</span>";
+                                    echo "<span id='error' style='color:red'>" . $_SESSION["message"] . "</span>";
                                     echo "</p>";
                                 }
                                 session_destroy();
@@ -54,7 +62,7 @@
                                 </p>
                                 <p class="login button">
                                     ¿No estas registrado?
-                                    <a href="../html/registroPersona.php" class="to_register">Registrate!</a>
+                                    <a href="../html/registroParticular.php" class="to_register">Registrate!</a>
                                 </p>
                                 <p class="change_link">
                                     ¿Eres una empresa?
