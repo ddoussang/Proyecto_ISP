@@ -63,7 +63,7 @@
                             <a class="nav-link" href="#">Análisis</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./loginEmpleado.php">Salir</a>
+                            <a class="nav-link" href="./fileCerrarEmpleado.php.php">Salir</a>
                         </li>
                     </ul>
                 </div>
