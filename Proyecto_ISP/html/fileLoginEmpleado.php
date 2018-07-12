@@ -20,7 +20,7 @@ try {
     session_start();
     if (!is_null($usuario)) {
         
-        if ($usuario->getHabilitadoEmpleado() === true) {
+        if ($usuario->getHabilitadoEmpleado()) {
             if ($contrasena === $usuario->getPasswordEmpleado()) {
 
                 if ($usuario->getTipoEmpleado() === "Receptor") {
