@@ -61,45 +61,145 @@
             </nav>
             <div class="container-fluid">
                 <div class="row" >
-                    <div class="col-md-6" >
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Mis Datos</h5>
-                                <form action="./actualizarDatos.php" method="POST">
-                                    <?php
-                                    session_start();
-                                    include_once '../dto/EmpresaDto.php';
-                                    include_once '../dto/ParticularDto.php';
-                                    $cliente = unserialize($_SESSION["cliente"]);
-                                    echo get_class($cliente);
-                                    if ($cliente  instanceof ParticularDto) {
-                                        echo "<table class='table'>
+                    <?php
+                    session_start();
+                    include_once '../dto/EmpresaDto.php';
+                    include_once '../dto/ParticularDto.php';
+                    include_once '../dao/ContactoDaoImp.php';
+                    $cliente = unserialize($_SESSION["cliente"]);
+                    if ($cliente instanceof ParticularDto) {
+                        echo "<div class='col-md-6' >
+                        <div class='card' >
+                            <div class='card-body'>
+                                <h5 class='card-title'>Datos de perfil</h5>
+                                <form action='./fileActualizarDatos.php' method='POST'>";
+                        echo "<table class='table'>
                                     <tbody>
                                         <tr>
-                                            <th>Nombre :</th>
-                                            <td><input type='text' name='nombre'/></td>
-                                            <td>Otto</td>
-                                            <td>@mdo</td>
+                                            <td>Nombre :</td>
+                                            <td><input id='usernamesignup' name='usernamesignup' required='required' type='text' placeholder='Nombre'
+                                            value=" . $cliente->getNombreParticular() . " /></td>
+                                         </tr>
+                                         <tr>
+                                            <td>Direccion :</td>
+                                            <td><input id='direccion' name='direccion' required='required' type='text' placeholder='Direccion' 
+                                            value=" . $cliente->getDireccionParticular() . " /></td>
                                         </tr>
-                                    </tbody>
-                                </table>";
-                                    } elseif ($cliente instanceof EmpresaDto) {
-                                        echo "<table class='table'>
-                                    <tbody>
+                                         <tr>
+                                            <td>Telefono :</td>
+                                            <td><input id='telefono' name='telefono' required='required' type='text'  placeholder='56977837849' 
+                                            value=" . $cliente->getTelefonoParticular() . " /> </td>
+                                        </tr>
+                                         <tr>
+                                            <td>Correo :</td>
+                                            <td><input id='emailsignup' name='emailsignup' required='required' type='email' placeholder='mysupermail@mail.com'
+                                             value=" . $cliente->getEmailParticular() . " /> </td>
+                                        </tr>
+                                         <tr>
+                                            <td>Contraseña anterior:</td>
+                                            <td><input id='passwordsignup' name='passwordsignup' required='required' type='password' placeholder='eg. X8df!90EO'/></td>
+                                        </tr>
+                                         <tr>
+                                            <td>Nueva Contraseña (opcional):</td>
+                                            <td><input id='passwordsignup' name='passwordsignup' type='password' placeholder='eg. X8df!90EO'/></td>
+                                        </tr>
+                                         <tr>
+                                            <td>Rut contacto: </td>
+                                            <td><input type='text' name='txtRut' id='txtRut' placeholder='Rut' onkeypress='return soloRUT(event)'
+                                           onblur='checkRutGenerico(txtRut.value, false)' required='' ></td>
+                                        </tr>
                                         <tr>
-                                            <th>Nombre: </th>
+                                            <td>
+                                                <input type='submit' value='Actualizar' class='button' /> 
+                                            </td>
                                             <td></td>
-                                            <td>Otto</td>
-                                            <td>@mdo</td>
                                         </tr>
                                     </tbody>
                                 </table>";
-                                    }
-                                    ?>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
+                        echo "</form>
+                </div>
+                <div class='card-body'>
+                    <form action='fileBajarCuenta.php' method='POST' >
+                        <table class='table'>
+                            <tbody>
+                                <tr>
+                                    <td>Dar de baja mi cuenta:</td>
+                                    <td><p>Al realizar esto aceptas los terminos y condiciones.</p></td>
+                                    <td><input type='submit' value='Bajar' class='button' ></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>";
+                    } elseif ($cliente instanceof EmpresaDto) {
+                        $implementa = new ContactoDaoImp();
+                        $contacto = $implementa->buscarConCodigoEmpresa($cliente->getCodigoEmpresa());
+                        echo "<div>
+                        <div class='card' >
+                            <div class='card-body'>
+                                <h5 class='card-title'>Datos de perfil</h5>
+                                <form action='./fileActualizarDatos.php' method='POST'>";
+                        echo "<table class='table'>
+                                    <tbody>
+            <tr>
+            <td>Nombre empresa :</td>
+            <td><input id='usernamesignup' name='usernamesignup' required='required' type='text' placeholder='Nombre'
+                    value=" . $cliente->getNombreEmpresa() . " /></td>
+             <td>Rut Contacto:</td>
+             <td><input type='text' name='txtRut' id='txtRut' placeholder='Rut' onkeypress='return soloRUT(event)'
+                                           onblur='checkRutGenerico(txtRut.value, false)' required=''
+                                           value=" . $contacto->getRutContacto() . " ></td>
+             </tr>
+            <tr>
+            <td>Direccion :</td>
+            <td><input id='direccion' name='direccion' required='required' type='text' placeholder='Direccion' 
+                   value=" . $cliente->getDireccionEmpresa() . " /></td>
+            <td>Nombre Contacto:</td>
+             <td><input id='nombre' name='nombre' required='required' type='text' value=" . $contacto->getNombreContacto() . " /> </td>
+             </tr>
+             </tr>
+            <tr>
+            <td><label for='contraseñActual' class='youpasswd' > Contraseña actual: </label></td>
+            <td><input id='contraseñActual' name='contraseñActual' required='required' type='password' /></td>
+            <td><label for='emailsignup' class='emailsignup' > Correco contacto </label></td>
+            <td><input id='emailsignup' name='emailsignup' required='required' type='email' value=" . $contacto->getEmailContacto() . " /></td>
+            </tr>
+            <tr>
+            <td><label for='nuevaContraseña' class='youpasswd' > Nueva contraseña(opcional) : </label></td>
+            <td><input id='nuevaContraseña' name='nuevaContraseña' type='password' /></td>
+             <td><label for='telefono' class='youmail' > Telefono </label></td>
+             <td><input id='telefono' name='telefono' required='required' type='text' value=" . $contacto->getTelefonoContacto() . " /> </td>
+            </tr>
+            <tr>
+            <td>
+            <input type='submit' value='Actualizar' class='button' /> 
+            </td>
+            <td></td>
+            </tr>
+        </tbody>
+                                </table>";
+                        echo "</form>
+                </div>
+                <div class='card-body'>
+                    <form action='fileBajarCuenta.php' method='POST' >
+                        <table class='table'>
+                            <tbody>
+                                <tr>
+                                    <td>Dar de baja la cuenta:</td>
+                                    <td><p>Al realizar esto aceptas los terminos y condiciones.</p></td>
+                                    <td><input type='submit' value='Bajar' class='button' ></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>";
+                    }
+                    ?>
+
                 </div>
             </div>
         </div>

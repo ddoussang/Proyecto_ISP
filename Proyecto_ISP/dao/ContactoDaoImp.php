@@ -61,6 +61,31 @@ class ContactoDaoImp implements ContactoDao {
         }
         return NULL;
     }
+    public static function buscarConCodigoEmpresa($cod) {
+        try {
+            $pdo = new clasePDO();
+            $stmt = $pdo->prepare("SELECT * FROM contacto WHERE empresa_codigoEmpresa=?");
+            $stmt->bindParam(1, $cod);
+            
+            $stmt->execute();
+            $resultado = $stmt->fetchAll();
+            foreach ($resultado as $value) {
+                $dto = new ContactoDto();
+                $dto->setRutContacto($value["rut_contacto"]);
+                $dto->setNombreContacto($value["nombre_contacto"]);
+                $dto->setEmailContacto($value["email_contacto"]);
+                $dto->setTelefonoContacto($value["telefono_contacto"]);
+                $dto->setEmpresaCodigoEmpresa($value["empresa_codigoEmpresa"]);
+                       
+                return $dto;
+            }
+            $pdo = NULL;
+        } catch (Exception $exc) {
+            echo "Error dao en existeRutContacto->" . $exc->getMessage();
+            //return;
+        }
+        return NULL;
+    }
 
     public static function modificar($dto) {
         try {

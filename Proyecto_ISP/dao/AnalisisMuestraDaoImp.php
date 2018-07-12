@@ -71,13 +71,13 @@ class AnalisisMuestraDaoImp implements AnalisisMuestraDao {
 
     /* Retorna objeto con las muestras encontradas */
 
-    public function muestraPorCodigoCliente($rut) {
+    public function muestraPorCodigoCliente($cod) {
         $lista = new ArrayObject();
         try {
             $pdo = new clasePDO();
             $stmt = $pdo->prepare("SELECT * FROM analisis_muestra WHERE muestra_codigo_empresa=? OR muestra_codigo_particular=?");
-            $stmt->bindParam(1, $rut);
-            $stmt->bindParam(2, $rut);
+            $stmt->bindParam(1, $cod);
+            $stmt->bindParam(2, $cod);
 
             $stmt->execute();
             $resultado = $stmt->fetchAll();
@@ -96,6 +96,7 @@ class AnalisisMuestraDaoImp implements AnalisisMuestraDao {
         } catch (Exception $exc) {
             echo "Error dao al Buscar Muestra por Rut->" . $exc->getMessage();
         }
+        echo $lista;
         return $lista;
     }
 
