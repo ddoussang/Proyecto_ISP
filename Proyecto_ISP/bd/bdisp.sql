@@ -51,6 +51,7 @@ CREATE TABLE `empleado` (
 insert into `empleado` (`rut_empleado`,`nombre_empleado`,`password_empleado`,`email_empleado`,`tipo_empleado`,`habilitado_empleado`) values ('11.379.616-2','Carolina Soto','088ef99bff55c67dc863f83980a66a9b','csoto@correo.cl','Receptor',1);
 insert into `empleado` (`rut_empleado`,`nombre_empleado`,`password_empleado`,`email_empleado`,`tipo_empleado`,`habilitado_empleado`) values ('13.404.758-5','Carmen Carvajal','088ef99bff55c67dc863f83980a66a9b','ccarvajal@correo.cl','Tecnico',1);
 insert into `empleado` (`rut_empleado`,`nombre_empleado`,`password_empleado`,`email_empleado`,`tipo_empleado`,`habilitado_empleado`) values ('6.749.299-4','Rigoberto Mena','088ef99bff55c67dc863f83980a66a9b','rmena@correo.cl','Tecnico',1);
+insert into `empleado` (`rut_empleado`,`nombre_empleado`,`password_empleado`,`email_empleado`,`tipo_empleado`,`habilitado_empleado`) values ('7.664.709-7','Leopoldo Mendez','088ef99bff55c67dc863f83980a66a9b','lmendez@correo.cl','Administrador',1);
 
 /*Table structure for table `empresa` */
 
@@ -140,12 +141,12 @@ CREATE TABLE `analisis_muestra` (
 
 /*Data for the table `analisis_muestra` */
 
-insert into `analisis_muestra` (`id_analisis_muestra`,`fecha_recepcion_muestra`,`temperatura_muestra`,`cantidad_muestra`,`muestra_codigo_empresa`,`rut_empleado_recibe`,`muestra_codigo_particular`) values (1,'2018-01-14','14.5',2,NULL,'11.379.616-2',NULL);
-insert into `analisis_muestra` (`id_analisis_muestra`,`fecha_recepcion_muestra`,`temperatura_muestra`,`cantidad_muestra`,`muestra_codigo_empresa`,`rut_empleado_recibe`,`muestra_codigo_particular`) values (4,'2018-02-11','7.8',1,NULL,'11.379.616-2',NULL);
-insert into `analisis_muestra` (`id_analisis_muestra`,`fecha_recepcion_muestra`,`temperatura_muestra`,`cantidad_muestra`,`muestra_codigo_empresa`,`rut_empleado_recibe`,`muestra_codigo_particular`) values (5,'2018-03-22','10.1',3,NULL,'11.379.616-2',NULL);
-insert into `analisis_muestra` (`id_analisis_muestra`,`fecha_recepcion_muestra`,`temperatura_muestra`,`cantidad_muestra`,`muestra_codigo_empresa`,`rut_empleado_recibe`,`muestra_codigo_particular`) values (6,'2018-04-01','4.2',2,NULL,'11.379.616-2',NULL);
-insert into `analisis_muestra` (`id_analisis_muestra`,`fecha_recepcion_muestra`,`temperatura_muestra`,`cantidad_muestra`,`muestra_codigo_empresa`,`rut_empleado_recibe`,`muestra_codigo_particular`) values (7,'2018-05-17','11.2',1,NULL,'11.379.616-2',NULL);
-insert into `analisis_muestra` (`id_analisis_muestra`,`fecha_recepcion_muestra`,`temperatura_muestra`,`cantidad_muestra`,`muestra_codigo_empresa`,`rut_empleado_recibe`,`muestra_codigo_particular`) values (8,'2018-05-30','5.6',4,NULL,'6.749.299-4',NULL);
+insert into `analisis_muestra` (`id_analisis_muestra`,`fecha_recepcion_muestra`,`temperatura_muestra`,`cantidad_muestra`,`muestra_codigo_empresa`,`rut_empleado_recibe`,`muestra_codigo_particular`) values (1,'2018-01-14','14.5',2,NULL,'11.379.616-2',1);
+insert into `analisis_muestra` (`id_analisis_muestra`,`fecha_recepcion_muestra`,`temperatura_muestra`,`cantidad_muestra`,`muestra_codigo_empresa`,`rut_empleado_recibe`,`muestra_codigo_particular`) values (4,'2018-02-11','7.8',1,NULL,'11.379.616-2',2);
+insert into `analisis_muestra` (`id_analisis_muestra`,`fecha_recepcion_muestra`,`temperatura_muestra`,`cantidad_muestra`,`muestra_codigo_empresa`,`rut_empleado_recibe`,`muestra_codigo_particular`) values (5,'2018-03-22','10.1',3,NULL,'11.379.616-2',3);
+insert into `analisis_muestra` (`id_analisis_muestra`,`fecha_recepcion_muestra`,`temperatura_muestra`,`cantidad_muestra`,`muestra_codigo_empresa`,`rut_empleado_recibe`,`muestra_codigo_particular`) values (6,'2018-04-01','4.2',2,1,'11.379.616-2',NULL);
+insert into `analisis_muestra` (`id_analisis_muestra`,`fecha_recepcion_muestra`,`temperatura_muestra`,`cantidad_muestra`,`muestra_codigo_empresa`,`rut_empleado_recibe`,`muestra_codigo_particular`) values (7,'2018-05-17','11.2',1,2,'11.379.616-2',NULL);
+insert into `analisis_muestra` (`id_analisis_muestra`,`fecha_recepcion_muestra`,`temperatura_muestra`,`cantidad_muestra`,`muestra_codigo_empresa`,`rut_empleado_recibe`,`muestra_codigo_particular`) values (8,'2018-05-30','5.6',4,2,'6.749.299-4',NULL);
 
 
 
