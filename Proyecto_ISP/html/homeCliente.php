@@ -61,8 +61,8 @@
             </nav>
             
             <div class="container-fluid">
-                <h3>Noticias</h3>
-                <div class="row">
+                <h3>Home Cliente</h3>
+<!--                <div class="row">
                     <div class="col">
                         <div class="card">
                             <div class="card-body">
@@ -107,7 +107,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>-->
             </div>
         </div>
         <script type="text/javascript">

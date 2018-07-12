@@ -25,7 +25,14 @@
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
         <script src="js/main.js" type="text/javascript"></script>
     </head>
-    <body>
+    <body>        
+        <?php
+        session_start();
+        if (isset($_SESSION["mj"])) {
+           echo "<script>alert('Empleado Agregado');</script>";
+        }
+        session_destroy();
+        ?>
         <div id="wrapper" class="animate">
             <nav class="navbar header-top fixed-top navbar-expand-lg  navbar-dark bg-dark">
                 <span class="navbar-toggler-icon leftmenutrigger"></span>
@@ -231,11 +238,11 @@
                                                     <span class="focus-input100"></span>
                                                 </div>
                                                 <br>
-                                                <div class="wrap-input100 validate-input" data-validate = "Las contraseñas no coinciden" >
+<!--                                                <div class="wrap-input100 validate-input" data-validate = "Las contraseñas no coinciden" >
                                                     <input class="input100" type="password" name="txtRepPass" placeholder="Repetir contraseña" >
                                                     <span class="focus-input100"></span>
                                                 </div>
-                                                <br>
+                                                <br>-->
                                             </div>
                                         </div>
                                         <div class="container-login100-form-btn">

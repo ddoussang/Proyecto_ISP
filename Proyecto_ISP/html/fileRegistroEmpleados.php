@@ -20,9 +20,13 @@ $nuevo->setHabilitadoEmpleado(true);
 
 if(EmpleadoDaoImp::agregar($nuevo)){
     echo "<script>alert('Empleado Agregado');</script>";
+    session_start();
+    $_SESSION["mj"];
 }else{
     echo "<script>alert('Lo sentimos, no se pudo registrar');</script>";
 }
+session_start();
+$_SESSION["mj"];
 
 //session_start();
 //$_SESSION["user"]= serialize($nuevo);

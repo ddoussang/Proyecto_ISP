@@ -17,6 +17,7 @@ and open the template in the editor.
         <link rel="stylesheet" type="text/css" href="css/demo.css" />
         <link rel="stylesheet" type="text/css" href="css/style.css" />
         <link rel="stylesheet" type="text/css" href="css/animate-custom.css" />
+        <script src="js/main.js" type="text/javascript"></script>
     </head>
     <body>
         <div class="container">
@@ -47,10 +48,10 @@ and open the template in the editor.
                                     <label for="passwordsignup" class="youpasswd" data-icon="p"> Contraseña </label>
                                     <input id="passwordsignup" name="passwordsignup" required="required" type="password" placeholder="eg. X8df!90EO"/>
                                 </p>
-                                <p> 
+<!--                                <p> 
                                     <label for="passwordsignup_confirm" class="youpasswd" data-icon="p">Confirma contraseña </label>
                                     <input id="passwordsignup_confirm" name="passwordsignup_confirm" required="required" type="password" placeholder="eg. X8df!90EO"/>
-                                </p>
+                                </p>-->
                                 <p class="signin button"> 
                                     <input type="submit" value="Siguiente"/> 
                                 </p>

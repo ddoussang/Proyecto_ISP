@@ -4,7 +4,7 @@ class clasePDO extends PDO {
 
     function __construct() {
         try {
-            parent::__construct('mysql:host=localhost;dbname=bdisp', 'root', 'root19520');
+            parent::__construct('mysql:host=localhost;dbname=bdisp', 'root', '');
             parent::setAttribute(PDO:: ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             
         } catch (Exception $ex) {

@@ -46,7 +46,7 @@ and open the template in the editor.
                                 </p>
                                 <p> 
                                     <label for="telefono" class="youmail" data-icon="u" > Telefono </label>
-                                    <input id="telefono" name="telefono" required="required" type="text" placeholder="56977837849"/> 
+                                    <input id="telefono" name="telefono" required="required" type="number" placeholder="56977837849"/> 
                                 </p>
                                 <p class="signin button"> 
                                     <input type="submit" value="Registrar"/> 

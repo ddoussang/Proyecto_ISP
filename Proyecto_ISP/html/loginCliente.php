@@ -42,12 +42,12 @@
                                 </p>
                                 <p> 
                                     <label for="password" class="youpasswd" data-icon="p"> Contraseña </label>
-                                    <input id="password" name="password" required="required" type="password" placeholder="eg. X8df!90EO" /> 
+                                    <input id="password" name="password" required="required" type="password" placeholder="******" /> 
                                 </p>
-                                <p class="keeplogin"> 
+<!--                                <p class="keeplogin"> 
                                     <input type="checkbox" name="loginkeeping" id="loginkeeping" value="loginkeeping" /> 
                                     <label for="loginkeeping">Mantenme mi session abierta</label>
-                                </p>
+                                </p>-->
                                 <?php
                                 session_start();
                                 if (isset($_SESSION["message"])) {

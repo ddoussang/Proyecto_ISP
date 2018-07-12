@@ -10,8 +10,8 @@ try {
     $nuevaEmpresa = new EmpresaDto();
     $nuevaEmpresa->setRutEmpresa($_POST["txtRut"]);
     $nuevaEmpresa->setNombreEmpresa($_POST["nombre"]);
-    $nuevaEmpresa->setDireccionEmpresa($_POST["direccion"]);
-    $nuevaEmpresa->setPasswordEmpresa($_POST["passwordsignup"]);
+    $nuevaEmpresa->setDireccionEmpresa($_POST["direccion"]);    
+    $nuevaEmpresa->setPasswordEmpresa (md5(trim($_POST["passwordsignup"])));
     
     session_start();
     $_SESSION["empresaNueva"]= serialize($nuevaEmpresa);

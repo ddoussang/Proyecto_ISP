@@ -90,7 +90,7 @@
                                         } elseif ($usuario instanceof ParticularDto) {
                                             $lista = $implement->buscarMuestraPorCodigoCliente($usuario->getCodigoParticular());
                                         }
-                                        echo "Lista : ".$lista;
+                                        //echo "Lista : ".$lista;
                                         foreach ($lista as $aux) {
                                             echo "<tr>
                                             <th>" . $aux->getIdAnalisisMuestra() . "</th>

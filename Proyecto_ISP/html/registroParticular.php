@@ -49,16 +49,16 @@ and open the template in the editor.
                                 </p>
                                 <p> 
                                     <label for="telefono" class="youmail" data-icon="u" > Telefono </label>
-                                    <input id="telefono" name="telefono" required="required" type="text" placeholder="56977837849"/> 
+                                    <input id="telefono" name="telefono" required="required" type="number" placeholder="56977837849"/> 
                                 </p>
                                 <p> 
                                     <label for="passwordsignup" class="youpasswd" data-icon="p"> Contraseña </label>
-                                    <input id="passwordsignup" name="passwordsignup" required="required" type="password" placeholder="eg. X8df!90EO"/>
+                                    <input id="passwordsignup" name="passwordsignup" required="required" type="password" placeholder="******"/>
                                 </p>
-                                <p> 
+<!--                                <p> 
                                     <label for="passwordsignup_confirm" class="youpasswd" data-icon="p"> Confirma tu contraseña </label>
                                     <input id="passwordsignup_confirm" name="passwordsignup_confirm" required="required" type="password" placeholder="eg. X8df!90EO"/>
-                                </p>
+                                </p>-->
                                 <p class="signin button"> 
                                     <input type="submit" value="Registrarme"/> 
                                 </p>
