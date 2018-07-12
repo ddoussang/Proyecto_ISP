@@ -23,6 +23,7 @@
         </style>
         <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="js/main.js" type="text/javascript"></script>
     </head>
     <body>
         <div id="wrapper" class="animate">
@@ -44,7 +45,7 @@
                             <a class="nav-link" href="#">Side Menu Items</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Pricing</a>
+                            <a class="nav-link" href="#">#</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav ml-md-auto d-md-flex">
@@ -191,20 +192,20 @@
                                         <div class="row">
                                             <div class="col-sm-6">
                                                 <div class="wrap-input100 validate-input" data-validate = "Porfavor ingresa tu rut" >
-                                                    <input class="input100" type="text" id="txtRut" name="txtRut" placeholder="Rut" onkeypress="return soloRUT(event)"
+                                                    <input class="input100" type="text" required="" id="txtRut" name="txtRut" placeholder="Rut" onkeypress="return soloRUT(event)"
                                                            onblur="checkRutGenerico(txtRut.value, false)" >
                                                     <span class="focus-input100"></span>
                                                 </div>
                                                 <br>
                                                 
                                                 <div class="wrap-input100 validate-input" data-validate = "Porfavor ingresa tu nombre" >
-                                                    <input class="input100" type="text" name="txtNombre" placeholder="Nombre" >
+                                                    <input class="input100" type="text" name="txtNombre" placeholder="Nombre" required="" >
                                                     <span class="focus-input100"></span>
                                                 </div>
                                                 <br>
                                                 
                                                 <div class="wrap-input100 validate-input" data-validate = "Porfavor ingresa tu correo" >
-                                                    <input class="input100" type="email" name="txtCorreo" placeholder="ejemplo@ejemplo.cl" >
+                                                    <input class="input100" type="email" name="txtCorreo" required="" placeholder="ejemplo@ejemplo.cl" >
                                                     <span class="focus-input100"></span>
                                                 </div>                                                                                            
                                                 
@@ -216,7 +217,7 @@
                                                     
                                                     <div class="col-sm-6">
                                                         <select class="custom-select input100" name="tipo" required="">
-                                                            <option value="0" selected>Tipo Empleado</option>
+                                                            <option value="0" disabled="" selected>Tipo Empleado</option>
                                                             <option value="Administrador">Administrador</option>
                                                             <option value="Receptor">Receptor</option>
                                                             <option value="Tecnico">Tecnico</option>                                                            
