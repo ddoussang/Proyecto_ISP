@@ -183,7 +183,7 @@
                         <div class="limiter">
                             <div class="container-registro">
                                 <div class="wrap-registro">
-                                    <form class="login100-form validate-form p-l-55 p-r-55 p-t-160" method="POST" action="./fileRegistrarEmpleado.php">
+                                    <form class="login100-form validate-form p-l-55 p-r-55 p-t-160" method="POST" action="./fileRegistroEmpleados.php">
                                         <span class="login100-form-title">
                                             <h1>Formulario registro de Empleados</h1>
                                         </span>
@@ -206,9 +206,7 @@
                                                 <div class="wrap-input100 validate-input" data-validate = "Porfavor ingresa tu correo" >
                                                     <input class="input100" type="email" name="txtCorreo" placeholder="ejemplo@ejemplo.cl" >
                                                     <span class="focus-input100"></span>
-                                                </div>
-                                                <br>
-                                                
+                                                </div>                                                                                            
                                                 
                                                 <br>
                                             </div>
@@ -217,11 +215,11 @@
                                                 <div class="row">
                                                     
                                                     <div class="col-sm-6">
-                                                        <select class="custom-select input100" name="comuna" required="">
+                                                        <select class="custom-select input100" name="tipo" required="">
                                                             <option value="0" selected>Tipo Empleado</option>
-                                                            <option value="Cerrillos">Administrador</option>
-                                                            <option value="Cerro Navia">Receptor</option>
-                                                            <option value="Conchalí">Tecnico</option>                                                            
+                                                            <option value="Administrador">Administrador</option>
+                                                            <option value="Receptor">Receptor</option>
+                                                            <option value="Tecnico">Tecnico</option>                                                            
                                                         </select>
                                                     </div>
                                                 </div>
