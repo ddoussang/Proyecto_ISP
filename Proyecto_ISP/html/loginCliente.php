@@ -21,8 +21,8 @@
         session_start();
         if (isset($_SESSION["mj"])) {
             echo "<script>alert('" . $_SESSION["mj"] . "');</script>";
+            session_destroy();
         }
-        session_destroy();
         ?>
         <div class="container">
             <header>
@@ -49,11 +49,11 @@
                                     <label for="loginkeeping">Mantenme mi session abierta</label>
                                 </p>-->
                                 <?php
-                                session_start();
                                 if (isset($_SESSION["message"])) {
                                     echo " <p>";
                                     echo "<span id='error' style='color:red'>" . $_SESSION["message"] . "</span>";
                                     echo "</p>";
+                                    session_unset("message");
                                 }
                                 session_destroy();
                                 ?>

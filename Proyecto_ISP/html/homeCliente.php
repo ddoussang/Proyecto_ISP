@@ -29,6 +29,7 @@
         session_start();
         if (isset($_SESSION["mj"])) {
             echo "<script>alert('" . $_SESSION["mj"] . "');</script>";
+            session_unset("mj");
         }
         ?>
         <div id="wrapper" class="animate">

@@ -26,8 +26,10 @@
     </head>
     <body>
         <?php
+        session_start();
         if (isset($_SESSION["mj"])) {
             echo "<script>alert('" . $_SESSION["mj"] . "');</script>";
+            session_unset("mj");
         }
         ?>
         <div id="wrapper" class="animate">
@@ -67,7 +69,6 @@
             <div class="container-fluid">
                 <div class="row" >
                     <?php
-                    session_start();
                     include_once '../dto/EmpresaDto.php';
                     include_once '../dto/ParticularDto.php';
                     include_once '../dao/ContactoDaoImp.php';
@@ -102,11 +103,11 @@
                                         </tr>
                                          <tr>
                                             <td>Contraseña anterior:</td>
-                                            <td><input id='passwordsignup' name='passwordsignup' required='required' type='password' placeholder='eg. X8df!90EO'/></td>
+                                            <td><input id='passwordsignup' name='passwordsignup' value='' required='required' type='password' placeholder='eg. X8df!90EO'/></td>
                                         </tr>
                                          <tr>
                                             <td>Nueva Contraseña (opcional):</td>
-                                            <td><input id='nuevaContra' name='nuevaContra' type='password' placeholder='eg. X8df!90EO'/></td>
+                                            <td><input id='nuevaContra' name='nuevaContra' value='' type='password' placeholder='eg. X8df!90EO'/></td>
                                         </tr>
                                         <tr>
                                             <td>
@@ -163,13 +164,13 @@
              </tr>
             <tr>
             <td><label for='passActual' class='youpasswd' > Contraseña actual: </label></td>
-            <td><input id='passActual' name='passActual' required='required' type='password' /></td>
+            <td><input id='passActual' name='passActual' required='required'value='' type='password' /></td>
             <td><label for='emailsignup' class='emailsignup' > Correco contacto </label></td>
             <td><input id='emailsignup' name='emailsignup' required='required' type='email' value='" . $contacto->getEmailContacto() . "' /></td>
             </tr>
             <tr>
             <td><label for='nuevaPass' class='youpasswd' > Nueva contraseña(opcional) : </label></td>
-            <td><input id='nuevaPass' name='nuevaPass' type='password' /></td>
+            <td><input id='nuevaPass' name='nuevaPass' type='password' value='' /></td>
              <td><label for='telefono' class='youmail' > Telefono </label></td>
              <td><input id='telefono' name='telefono' required='required' type='text' value='" . $contacto->getTelefonoContacto() . "' /> </td>
             </tr>

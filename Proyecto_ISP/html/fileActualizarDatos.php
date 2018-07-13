@@ -20,13 +20,13 @@ try {
     session_start();
     $cliente = unserialize($_SESSION["cliente"]);
     if ($cliente instanceof ParticularDto) {
-        if (md5($_POST["passwordsignup"]) == $cliente->getPasswordParticular()) {
+        if (md5($_POST["passwordsignup"]) === $cliente->getPasswordParticular()) {
             $cliente->setNombreParticular(trim($_POST["usernamesignup"]));
             $cliente->setEmailParticular(trim($_POST["emailsignup"]));
             $cliente->setDireccionParticular(trim($_POST["direccion"]));
             $cliente->setTelefonoParticular(trim($_POST["telefono"]));
-            if (isset($_POST["nuevaContra"])) {
-                $cliente->setPasswordParticular($_POST["nuevaContra"]);
+            if ($_POST["nuevaContra"] != "") {
+                $cliente->setPasswordParticular(md5($_POST["nuevaContra"]));
             }
             $implement = new ParticularDaoImp();
             $implement->modificar($cliente);
@@ -40,8 +40,8 @@ try {
         if (md5($_POST["passActual"]) == $cliente->getPasswordEmpresa()) {
             $cliente->setDireccionEmpresa(trim($_POST["direccion"]));
             $cliente->setNombreEmpresa($_POST["usernamesignup"]);
-            if (isset($_POST["nuevaPass"])) {
-                $cliente->setPasswordEmpresa($_POST["nuevaPass"]);
+            if ($_POST["nuevaPass"] != "") {
+                $cliente->setPasswordEmpresa(md5($_POST["nuevaPass"]));
             }
             $empresaImp = new EmpresaDaoImp();
             $empresaImp->modificar($cliente);
@@ -56,9 +56,9 @@ try {
             $_SESSION["mj"] = "Contraseña incorrecta!";
             header('Location: ./datosCliente.php');
         }
-        $_SESSION["mj"] = " Modificado!";
-        header('Location: ./homeCliente.php');
     }
+    $_SESSION["mj"] = " Modificado!";
+    header('Location: ./homeCliente.php');
 } catch (Exception $ex) {
     echo "Error" . $ex->getMessage();
 }

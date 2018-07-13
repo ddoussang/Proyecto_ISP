@@ -24,6 +24,10 @@ if(AnalisisMuestraDaoImp::buscarMuestraPorRutEmpleado("11.379.616-2")){
 }else{
     echo "no";
 }
+$implement = new AnalisisMuestraDaoImp();
+echo "creado implement";
+$lista = $implement->muestraPorCodigoCliente(2);
+echo "lista: ".$lista;
 
 //foreach (AnalisisMuestraDaoImp::buscarMuestraPorRutEmpleado("11.379.616-2") as $value){
 //    echo $value."<br>";
