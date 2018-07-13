@@ -29,7 +29,7 @@
         <?php
         session_start();
         if (isset($_SESSION["mj"])) {
-           echo "<script>alert('Empleado Agregado');</script>";
+            echo "<script>alert('Empleado Agregado');</script>";
         }
         session_destroy();
         ?>
@@ -187,75 +187,145 @@
                                         </div>
                                     </div>-->
 
-                    
-                        <div class="limiter">
-                            <div class="container-registro">
-                                <div class="wrap-registro">
-                                    <form class="login100-form validate-form p-l-55 p-r-55 p-t-160" method="POST" action="./fileRegistroEmpleados.php">
-                                        <span class="login100-form-title">
-                                            <h1>Formulario registro de Empleados</h1>
-                                        </span>
-                                        <br>
-                                        <div class="row">
-                                            <div class="col-sm-6">
-                                                <div class="wrap-input100 validate-input" data-validate = "Porfavor ingresa tu rut" >
-                                                    <input class="input100" type="text" required="" id="txtRut" name="txtRut" placeholder="Rut" onkeypress="return soloRUT(event)"
-                                                           onblur="checkRutGenerico(txtRut.value, false)" >
-                                                    <span class="focus-input100"></span>
-                                                </div>
-                                                <br>
-                                                
-                                                <div class="wrap-input100 validate-input" data-validate = "Porfavor ingresa tu nombre" >
-                                                    <input class="input100" type="text" name="txtNombre" placeholder="Nombre" required="" >
-                                                    <span class="focus-input100"></span>
-                                                </div>
-                                                <br>
-                                                
-                                                <div class="wrap-input100 validate-input" data-validate = "Porfavor ingresa tu correo" >
-                                                    <input class="input100" type="email" name="txtCorreo" required="" placeholder="ejemplo@ejemplo.cl" >
-                                                    <span class="focus-input100"></span>
-                                                </div>                                                                                            
-                                                
-                                                <br>
-                                            </div>
-                                            <div class="col-sm-6" >
-                                                
-                                                <div class="row">
-                                                    
-                                                    <div class="col-sm-6">
-                                                        <select class="custom-select input100" name="tipo" required="">
-                                                            <option value="0" disabled="" selected>Tipo Empleado</option>
-                                                            <option value="Administrador">Administrador</option>
-                                                            <option value="Receptor">Receptor</option>
-                                                            <option value="Tecnico">Tecnico</option>                                                            
-                                                        </select>
-                                                    </div>
-                                                </div>
 
-                                                <br>
-                                                <div class="wrap-input100 validate-input" data-validate = "Porfavor ingresa tu contraseña">
-                                                    <input class="input100" type="password" name="txtPass" placeholder="Contraseña" >
-                                                    <span class="focus-input100"></span>
+                    <div class="limiter">
+                        <div class="container-registro">
+                            <div class="wrap-registro">
+                                <form class="login100-form validate-form p-l-55 p-r-55 p-t-160" method="POST" action="./fileRegistroEmpleados.php">
+                                    <span class="login100-form-title">
+                                        <h1>Formulario registro de Empleados</h1>
+                                    </span>
+                                    <br>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="wrap-input100 validate-input" data-validate = "Porfavor ingresa tu rut" >
+                                                <input class="input100" type="text" required="" id="txtRut" name="txtRut" placeholder="Rut" onkeypress="return soloRUT(event)"
+                                                       onblur="checkRutGenerico(txtRut.value, false)" >
+                                                <span class="focus-input100"></span>
+                                            </div>
+                                            <br>
+
+                                            <div class="wrap-input100 validate-input" data-validate = "Porfavor ingresa tu nombre" >
+                                                <input class="input100" type="text" name="txtNombre" placeholder="Nombre" required="" >
+                                                <span class="focus-input100"></span>
+                                            </div>
+                                            <br>
+
+                                            <div class="wrap-input100 validate-input" data-validate = "Porfavor ingresa tu correo" >
+                                                <input class="input100" type="email" name="txtCorreo" required="" placeholder="ejemplo@ejemplo.cl" >
+                                                <span class="focus-input100"></span>
+                                            </div>                                                                                            
+
+                                            <br>
+                                        </div>
+                                        <div class="col-sm-6" >
+
+                                            <div class="row">
+
+                                                <div class="col-sm-6">
+                                                    <select class="custom-select input100" name="tipo" required="">
+                                                        <option value="0" disabled="" selected>Tipo Empleado</option>
+                                                        <option value="Administrador">Administrador</option>
+                                                        <option value="Receptor">Receptor</option>
+                                                        <option value="Tecnico">Tecnico</option>                                                            
+                                                    </select>
                                                 </div>
-                                                <br>
-<!--                                                <div class="wrap-input100 validate-input" data-validate = "Las contraseñas no coinciden" >
-                                                    <input class="input100" type="password" name="txtRepPass" placeholder="Repetir contraseña" >
-                                                    <span class="focus-input100"></span>
-                                                </div>
-                                                <br>-->
+                                            </div>
+
+                                            <br>
+                                            <div class="wrap-input100 validate-input" data-validate = "Porfavor ingresa tu contraseña">
+                                                <input class="input100" type="password" name="txtPass" placeholder="Contraseña" >
+                                                <span class="focus-input100"></span>
+                                            </div>
+                                            <br>
+                                            <!--                                                <div class="wrap-input100 validate-input" data-validate = "Las contraseñas no coinciden" >
+                                                                                                <input class="input100" type="password" name="txtRepPass" placeholder="Repetir contraseña" >
+                                                                                                <span class="focus-input100"></span>
+                                                                                            </div>
+                                                                                            <br>-->
+                                            <div class="container-login100-form-btn">
+                                                <button class="login100-form-btn">
+                                                    Registrar Empleado
+                                                </button>
                                             </div>
                                         </div>
-                                        <div class="container-login100-form-btn">
-                                            <button class="login100-form-btn">
-                                                Registrar Empleado
-                                            </button>
-                                        </div>
-                                        <br>
-                                    </form>
-                                </div>
+                                    </div>
+
+                                    <br>
+                                </form>
                             </div>
                         </div>
+                        <br>
+                    </div>
 
+                    <div class="container-fluid">
+                        <form class="login100-form validate-form p-l-55 p-r-55 p-t-160" method="POST" action="./fileDeshabilitarEmpleado.php">
+                            <span class="login100-form-title">
+                                <h1>Deshabilitar Empleado</h1>
+                                <div class="wrap-input100 validate-input" data-validate = "Porfavor ingresa tu rut" >
+                                    <input class="input100" type="text" required="" id="txtRut" name="txtRut" placeholder="Rut" >
+<!--                                       onkeypress="return soloRUT(event)"
+                                           onblur="checkRutGenerico(txtRut.value, false)" >-->
+                                    <span class="focus-input100"></span>
+                                    <br>
+                                    <div class="container-login100-form-btn">
+                                        <br>
+                                        <button class="login100-form-btn">
+                                            Buscar
+                                        </button>
+                                    </div>
+                                </div>
+                            </span> 
+
+                        </form>    
+                    </div>
+
+                    <?php
+                    include_once '../dao/EmpleadoDaoImp.php';
+//                    include_once '../dto/EmpleadoDto.php';
+
+                    $implementacionUser = new EmpleadoDaoImp();
+                    session_start();
+                    if (isset($_SESSION["lista"])) {
+
+                        echo "<div class='row'>
+                                        <div class='col'>
+                                            <div class='card'>
+                                                <div class='card-body'>
+                                                    <h5 class='card-title'>Card title</h5>
+                                                    <table class='table'>
+                                                        <thead>
+                                                            <tr>
+                                                                <th scope='col'>#</th>
+                                                                <th scope='col'>RUT</th>
+                                                                <th scope='col'>NOMBRE</th>
+                                                                <th scope='col'>TIPO</th>
+                                                                <th scope='col'>ESTADO</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>";
+                        foreach (unserialize($_SESSION["lista"]) as $dto) {
+                            echo "<tr>";
+                            $implementacionUser->existeRutEmpleado($dto->getRutEmpleado());
+
+                            echo "<th>" . $dto->getRutEmpleado() . "</th>";
+                            echo "<th>" . $dto->getNombreEmpleado() . "</th>";
+                            echo "<th>" . $dto->getTipoEmpleado() . "</th>";
+
+                            echo "</tr>";
+                        }
+                        echo "
+                                      </tbody>
+                                  </table>
+                                  <br>
+                              </div> 
+                              </div>
+                              </div>
+                              </div>";
+                    }else{
+                        echo "no hay lista";
+                    }
+                    ?>            
                 </div>
             </div>
             <script type="text/javascript">
