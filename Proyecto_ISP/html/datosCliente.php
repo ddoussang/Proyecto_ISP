@@ -25,6 +25,11 @@
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     </head>
     <body>
+        <?php
+        if (isset($_SESSION["mj"])) {
+            echo "<script>alert('" . $_SESSION["mj"] . "');</script>";
+        }
+        ?>
         <div id="wrapper" class="animate">
             <nav class="navbar header-top fixed-top navbar-expand-lg  navbar-dark bg-dark">
                 <span class="navbar-toggler-icon leftmenutrigger"></span>
@@ -78,22 +83,22 @@
                                         <tr>
                                             <td>Nombre :</td>
                                             <td><input id='usernamesignup' name='usernamesignup' required='required' type='text' placeholder='Nombre'
-                                            value=" . $cliente->getNombreParticular() . " /></td>
+                                            value='" . $cliente->getNombreParticular() . "' /></td>
                                          </tr>
                                          <tr>
                                             <td>Direccion :</td>
                                             <td><input id='direccion' name='direccion' required='required' type='text' placeholder='Direccion' 
-                                            value=" . $cliente->getDireccionParticular() . " /></td>
+                                            value='" . $cliente->getDireccionParticular() . "' /></td>
                                         </tr>
                                          <tr>
                                             <td>Telefono :</td>
                                             <td><input id='telefono' name='telefono' required='required' type='text'  placeholder='56977837849' 
-                                            value=" . $cliente->getTelefonoParticular() . " /> </td>
+                                            value='" . $cliente->getTelefonoParticular() . "' /> </td>
                                         </tr>
                                          <tr>
                                             <td>Correo :</td>
                                             <td><input id='emailsignup' name='emailsignup' required='required' type='email' placeholder='mysupermail@mail.com'
-                                             value=" . $cliente->getEmailParticular() . " /> </td>
+                                             value='" . $cliente->getEmailParticular() . "' /> </td>
                                         </tr>
                                          <tr>
                                             <td>Contraseña anterior:</td>
@@ -101,12 +106,7 @@
                                         </tr>
                                          <tr>
                                             <td>Nueva Contraseña (opcional):</td>
-                                            <td><input id='passwordsignup' name='passwordsignup' type='password' placeholder='eg. X8df!90EO'/></td>
-                                        </tr>
-                                         <tr>
-                                            <td>Rut contacto: </td>
-                                            <td><input type='text' name='txtRut' id='txtRut' placeholder='Rut' onkeypress='return soloRUT(event)'
-                                           onblur='checkRutGenerico(txtRut.value, false)' required='' ></td>
+                                            <td><input id='nuevaContra' name='nuevaContra' type='password' placeholder='eg. X8df!90EO'/></td>
                                         </tr>
                                         <tr>
                                             <td>
@@ -136,6 +136,7 @@
                     } elseif ($cliente instanceof EmpresaDto) {
                         $implementa = new ContactoDaoImp();
                         $contacto = $implementa->buscarConCodigoEmpresa($cliente->getCodigoEmpresa());
+                        $_SESSION["contacto"] = serialize($contacto);
                         echo "<div>
                         <div class='card' >
                             <div class='card-body'>
@@ -146,31 +147,31 @@
             <tr>
             <td>Nombre empresa :</td>
             <td><input id='usernamesignup' name='usernamesignup' required='required' type='text' placeholder='Nombre'
-                    value=" . $cliente->getNombreEmpresa() . " /></td>
+                    value='" . $cliente->getNombreEmpresa() . "' /></td>
              <td>Rut Contacto:</td>
              <td><input type='text' name='txtRut' id='txtRut' placeholder='Rut' onkeypress='return soloRUT(event)'
                                            onblur='checkRutGenerico(txtRut.value, false)' required=''
-                                           value=" . $contacto->getRutContacto() . " ></td>
+                                           value='" . $contacto->getRutContacto() . "' ></td>
              </tr>
             <tr>
             <td>Direccion :</td>
             <td><input id='direccion' name='direccion' required='required' type='text' placeholder='Direccion' 
-                   value=" . $cliente->getDireccionEmpresa() . " /></td>
+                   value='" . $cliente->getDireccionEmpresa() . "' /></td>
             <td>Nombre Contacto:</td>
-             <td><input id='nombre' name='nombre' required='required' type='text' value=" . $contacto->getNombreContacto() . " /> </td>
+             <td><input id='nombre' name='nombre' required='required' type='text' value=' " . $contacto->getNombreContacto() . "' /> </td>
              </tr>
              </tr>
             <tr>
-            <td><label for='contraseñActual' class='youpasswd' > Contraseña actual: </label></td>
-            <td><input id='contraseñActual' name='contraseñActual' required='required' type='password' /></td>
+            <td><label for='passActual' class='youpasswd' > Contraseña actual: </label></td>
+            <td><input id='passActual' name='passActual' required='required' type='password' /></td>
             <td><label for='emailsignup' class='emailsignup' > Correco contacto </label></td>
-            <td><input id='emailsignup' name='emailsignup' required='required' type='email' value=" . $contacto->getEmailContacto() . " /></td>
+            <td><input id='emailsignup' name='emailsignup' required='required' type='email' value='" . $contacto->getEmailContacto() . "' /></td>
             </tr>
             <tr>
-            <td><label for='nuevaContraseña' class='youpasswd' > Nueva contraseña(opcional) : </label></td>
-            <td><input id='nuevaContraseña' name='nuevaContraseña' type='password' /></td>
+            <td><label for='nuevaPass' class='youpasswd' > Nueva contraseña(opcional) : </label></td>
+            <td><input id='nuevaPass' name='nuevaPass' type='password' /></td>
              <td><label for='telefono' class='youmail' > Telefono </label></td>
-             <td><input id='telefono' name='telefono' required='required' type='text' value=" . $contacto->getTelefonoContacto() . " /> </td>
+             <td><input id='telefono' name='telefono' required='required' type='text' value='" . $contacto->getTelefonoContacto() . "' /> </td>
             </tr>
             <tr>
             <td>

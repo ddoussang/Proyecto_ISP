@@ -27,8 +27,8 @@ try {
     $contacto->setEmpresaCodigoEmpresa($empresa->getCodigoEmpresa());
     $implementacionContacto->agregar($contacto);
 
-    $_SESSION["mj"] = 1;
+    $_SESSION["mj"] = "Empresa registrada!";
     header('Location: ./loginCliente.php');
 } catch (Exception $ex) {
-    
+    echo "Error " . $ex->getMessage();
 }

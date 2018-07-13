@@ -19,8 +19,8 @@
     <body>
         <?php
         session_start();
-        if (isset($_SESSION["mj"]) && $_SESSION["mj"]==1) {
-           echo "<script>alert('Registrado!');</script>";
+        if (isset($_SESSION["mj"])) {
+            echo "<script>alert('" . $_SESSION["mj"] . "');</script>";
         }
         session_destroy();
         ?>

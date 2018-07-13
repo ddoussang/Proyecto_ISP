@@ -21,13 +21,11 @@ try {
     $implementacion = new ParticularDaoImp();
     $implementacion->agregar($nuevo);
     session_start();
-    $_SESSION["mj"]=1;
+    $_SESSION["mj"] = "Particular registrado!";
     header('Location: ./loginCliente.php');
-    
-    
 } catch (Exception $ex) {
     echo "Error en file registrar particular" . $ex->getMessage();
     session_start();
-    $_SESSION["mj"]=0;
+    $_SESSION["mj"] = "Problemas al registrar,contactar con servicio tecnico";
     header('Location: ./loginCliente.php');
 }
