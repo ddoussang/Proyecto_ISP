@@ -19,9 +19,8 @@ $nuevo->setTipoEmpleado($_POST["tipo"]);
 $nuevo->setHabilitadoEmpleado(true);
 
 if(EmpleadoDaoImp::agregar($nuevo)){
-    echo "<script>alert('Empleado Agregado');</script>";
     session_start();
-    $_SESSION["mj"];
+    $_SESSION["mj"]="Agregado!";
 }else{
     echo "<script>alert('Lo sentimos, no se pudo registrar');</script>";
 }

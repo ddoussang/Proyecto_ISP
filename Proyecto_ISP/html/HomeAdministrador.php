@@ -25,6 +25,13 @@
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     </head>
     <body>
+        <?php
+        session_start();
+        if (isset($_SESSION["mj"])) {
+            echo "<script>alert('" . $_SESSION["mj"] . "');</script>";
+            session_unset("mj");
+        }
+        ?>
         <div id="wrapper" class="animate">
             <nav class="navbar header-top fixed-top navbar-expand-lg  navbar-dark bg-dark">
                 <span class="navbar-toggler-icon leftmenutrigger"></span>
